@@ -34,4 +34,3 @@ var page = new Pagination({
 ## 其他说明 Other
 - 当showButtons的数量大于total的数量时，就会按照total的数量来渲染分页的按钮数量。只有当total的数量大于showButtons的数量时，设置的展示按钮数量才会有效。
 - 样式可以自己定义。
-Email: webxzy@qq.com

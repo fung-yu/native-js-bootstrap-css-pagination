@@ -35,19 +35,15 @@
 
 			if (i == cur) {
 				html += '<li class="page-item active"><a class="page-link">' + (i + 1) + '<span class="sr-only">(current)</span></a></li>';
-				// html += '<li><a href="javascript:;" class="active">'+(i+1)+'</a></li>';
 			} else {
 				html += '<li class="page-item"><a class="page-link" href="#">' + (i + 1) + '</a></li>';
-				// html += '<li><a href="javascript:;">'+(i+1)+'</a></li>';
 			}
 		}
 
 		if (cur == 0 && total > showButtons) {
 			return '<li class="page-item disabled"><span id="prev" class="page-link"><</span></li>'+html + '<li class="page-item"><span id="next" class="page-link" href="#">></span></li>';
-			// return html+'<li><span id="next">下一页</span></li>';
 		} else if (cur == this.setting.total - 1 && total > showButtons) {
 			return '<li class="page-item"><span id="prev" class="page-link"><</span></li>' + html+'<li class="page-item disabled"><span id="next" class="page-link" href="#">></span></li>';
-			// return '<li><span id="prev">上一页</span></li>'+ html;
 		} else if (showButtons >= total) {
 			return '<li  class="page-item disabled"><span id="prev" class="page-link"><</span></li>' + html + '<li class="page-item disabled"><span id="next" class="page-link" href="#">></span></li>';
 		}
