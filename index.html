@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>native-Pagination</title>
+	<link href="./bootstrap.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<ul class="pagination" id="pageList"></ul>
+
+	<script type="text/javascript" src="pagination.js"></script>
+	<script type="text/javascript">
+		var page = new Pagination({
+			id: 'pageList',
+			total: 20,
+			showButtons: 6,
+			callback: function (pageIndex) {
+				console.log(pageIndex);
+			}
+		});
+	</script>
+</body>
+
+</html>
