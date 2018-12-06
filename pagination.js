@@ -43,9 +43,9 @@
 		}
 
 		if (cur == 0 && total > showButtons) {
-			return '<li class="page-item disabled"><span id="prev" class="page-link"><</span></li>'+html + '<li class="page-item"><span id="next" class="page-link" href="#">></span></li>';
+			return '<li class="page-item disabled"><span id="prev" class="page-link"><</span></li>' + html + '<li class="page-item"><span id="next" class="page-link" href="#">></span></li>';
 		} else if (cur == this.setting.total - 1 && total > showButtons) {
-			return '<li class="page-item"><span id="prev" class="page-link"><</span></li>' + html+'<li class="page-item disabled"><span id="next" class="page-link" href="#">></span></li>';
+			return '<li class="page-item"><span id="prev" class="page-link"><</span></li>' + html + '<li class="page-item disabled"><span id="next" class="page-link" href="#">></span></li>';
 		} else if (showButtons >= total) {
 			return '<li  class="page-item disabled"><span id="prev" class="page-link"><</span></li>' + html + '<li class="page-item disabled"><span id="next" class="page-link" href="#">></span></li>';
 		}
@@ -111,9 +111,11 @@
 
 		// 上一页 previous page
 		if (target.id === 'prev') {
-			if(target.parentNode.className.indexOf('disabled')>=0) return;
+			if (target.parentNode.className.indexOf('disabled') >= 0) return;
 			this.cur--;
 			if (this.cur < end - (len - 3) && this.cur > 2) {
+				end--;
+			} else if (this.cur < (end - pages + 1)) {
 				end--;
 			}
 			pageList.innerHTML = this.doInit(end - pages, this.cur - 1);
@@ -121,13 +123,14 @@
 
 		// 下一页 next page
 		if (target.id === 'next') {
-			if(target.parentNode.className.indexOf('disabled')>=0) return;
+			if (target.parentNode.className.indexOf('disabled') >= 0) return;
 			this.cur++;
 			if (this.cur > end - 2 && this.cur < total - 1) {
 				end++;
 			} else if (this.cur > end) {
 				end++;
 			}
+
 			pageList.innerHTML = this.doInit(end - pages, this.cur - 1);
 		}
 		this.setting.callback && this.setting.callback(this.cur - 1);
