@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  javascript原生分页插件
  *	使用bootstrap样式
  *	支持 IE8+
@@ -65,7 +65,7 @@
 	// click
 	Pagination.prototype.handle = function (e) {
 		var target = e.target || e.srcElement;
-		if (target.className === 'active') {
+		if (target.parentNode.className.indexOf('active')>-1) {
 			return false;
 		}
 
@@ -101,9 +101,9 @@
 					pageList.innerHTML = this.doInit(end - pages, cur - 1);
 				} else {
 					for (var i = 0; i < len; i++) {
-						items[i].className = '';
+						items[i].parentNode.className = 'page-item';
 					}
-					e.target.className = 'active';
+					e.target.parentNode.className = 'page-item active';
 				}
 			}
 		}
