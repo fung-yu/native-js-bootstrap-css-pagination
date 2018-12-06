@@ -1,6 +1,6 @@
 /*
- *  author: webxzy@qq.com
- *	versions: 2016-12-5
+ *  
+ *	
  *	支持 IE8+
  */
 
