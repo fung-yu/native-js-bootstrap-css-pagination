@@ -1,11 +1,11 @@
 /*
- *  
- *	
+ *  javascript原生分页插件
+ *	使用bootstrap样式
  *	支持 IE8+
+ * 	使用方法：https://github.com/fung-yu/native-js-bootstrap-css-pagination
  */
 
-;
-(function () {
+;(function () {
 	function Pagination(users) {
 		this.setting = {
 			id: null,
@@ -30,13 +30,14 @@
 		var html = '';
 		var showButtons = this.setting.showButtons;
 		var total = this.setting.total;
+		if (total === 0) return '<li></li>';
 		var pages = showButtons >= total ? total : showButtons;
 		for (var i = index, lens = pages + index; i < lens; i++) {
 
 			if (i == cur) {
-				html += '<li class="page-item active"><a class="page-link">' + (i + 1) + '<span class="sr-only">(current)</span></a></li>';
+				html += '<li class="page-item active"><a href="javascript:;" class="page-link">' + (i + 1) + '<span class="sr-only">(current)</span></a></li>';
 			} else {
-				html += '<li class="page-item"><a class="page-link" href="#">' + (i + 1) + '</a></li>';
+				html += '<li class="page-item"><a href="javascript:;" class="page-link" href="#">' + (i + 1) + '</a></li>';
 			}
 		}
 
