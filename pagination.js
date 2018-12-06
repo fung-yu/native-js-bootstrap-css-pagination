@@ -5,7 +5,8 @@
  * 	使用方法：https://github.com/fung-yu/native-js-bootstrap-css-pagination
  */
 
-;(function () {
+;
+(function () {
 	function Pagination(users) {
 		this.setting = {
 			id: null,
@@ -65,14 +66,14 @@
 	// click
 	Pagination.prototype.handle = function (e) {
 		var target = e.target || e.srcElement;
-		if (target.parentNode.className.indexOf('active')>-1) {
+		if (target.parentNode.className.indexOf('active') > -1) {
 			return false;
 		}
 
 		var pageList = this.setting.id;
 		var items = pageList.querySelectorAll('a');
 		var len = items.length;
-		var end = items[len - 1].innerHTML; // 最后一个按钮的页码
+		var end = items[len - 1].innerHTML.substr(0, 1); // 最后一个按钮的页码
 		var num = Number(target.innerHTML);
 		this.cur = num ? num : this.cur;
 		var cur = this.cur;
@@ -123,6 +124,8 @@
 			if(target.parentNode.className.indexOf('disabled')>=0) return;
 			this.cur++;
 			if (this.cur > end - 2 && this.cur < total - 1) {
+				end++;
+			} else if (this.cur > end) {
 				end++;
 			}
 			pageList.innerHTML = this.doInit(end - pages, this.cur - 1);
