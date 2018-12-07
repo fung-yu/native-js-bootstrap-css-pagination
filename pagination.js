@@ -36,9 +36,9 @@
 		for (var i = index, lens = pages + index; i < lens; i++) {
 
 			if (i == cur) {
-				html += '<li class="page-item active"><a href="javascript:;" class="page-link">' + (i + 1) + '<span class="sr-only">(current)</span></a></li>';
+				html += '<li class="page-item active"><a href="javascript:;" class="page-link">' + (i + 1) + '</a></li>';
 			} else {
-				html += '<li class="page-item"><a href="javascript:;" class="page-link" href="#">' + (i + 1) + '</a></li>';
+				html += '<li class="page-item"><a href="javascript:;" class="page-link">' + (i + 1) + '</a></li>';
 			}
 		}
 
@@ -73,7 +73,7 @@
 		var pageList = this.setting.id;
 		var items = pageList.querySelectorAll('a');
 		var len = items.length;
-		var end = items[len - 1].innerHTML.substr(0, 1); // 最后一个按钮的页码
+		var end = items[len - 1].innerHTML; // 最后一个按钮的页码
 		var num = Number(target.innerHTML);
 		this.cur = num ? num : this.cur;
 		var cur = this.cur;
